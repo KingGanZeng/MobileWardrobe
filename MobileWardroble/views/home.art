@@ -748,10 +748,7 @@
             $('#addClothesInput').click();
             console.log($('#addClothesInput'))
         })
-        $('#addClothesInput').on('change', function() {
-            var filePath;
-        })
-        $('#chooseImage').on('change',function(){
+        $('#addClothesInput').on('change',function(){
             var filePath = $(this).val(),         //获取到input的value，里面是文件的路径
              fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
                 src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
@@ -763,6 +760,7 @@
             var $img = $('<img>');
             $img.attr('src',src);
             $img.attr('id', fileFormat);
+            startDrag($img[0], $img[0])
             $('#div').append($img)
         })
     </script>
@@ -772,8 +770,6 @@
 <script>
 
     function login() {
-
-
 
         $("#Login").fadeTo(200, 1);
 
